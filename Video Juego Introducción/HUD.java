@@ -15,7 +15,7 @@ public class HUD extends Actor
         puntos += cantidad;
 
         
-        nivel = (puntos / 100) + 1;
+        nivel = (puntos / 50) + 1;
 
         actualizar();
     }

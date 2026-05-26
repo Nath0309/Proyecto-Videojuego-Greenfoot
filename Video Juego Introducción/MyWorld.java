@@ -20,8 +20,8 @@ public class MyWorld extends World
         hud = new HUD();
         addObject(hud, 120, 30);
         
-        musica = new GreenfootSound("ElTrenecito.mp3");
-        musica.setVolume(25);
+        musica = new GreenfootSound("SoundTrack.mp3");
+        musica.setVolume(35);
         musica.playLoop();
         
     }
