@@ -1,31 +1,41 @@
-import greenfoot.*;  
+import greenfoot.*;
 
 public class Mclaren extends Actor
 {
+    private int speed = 2;
+
     public void act()
+    {
+        mover();
+        limites();
+        aumentarDificultad();
+    }
+
+    private void mover()
     {
         if(Greenfoot.isKeyDown("right"))
         {
-            setLocation(getX() + 1, getY());
+            setLocation(getX() + speed, getY());
         }
 
         if(Greenfoot.isKeyDown("left"))
         {
-            setLocation(getX() - 1, getY());
+            setLocation(getX() - speed, getY());
         }
 
         if(Greenfoot.isKeyDown("up"))
         {
-            setLocation(getX(), getY() - 1);
+            setLocation(getX(), getY() - speed);
         }
 
         if(Greenfoot.isKeyDown("down"))
         {
-            setLocation(getX(), getY() + 1);
+            setLocation(getX(), getY() + speed);
         }
+    }
 
-        // Limites de carretera
-
+    private void limites()
+    {
         if(getX() < 250)
         {
             setLocation(250, getY());
@@ -35,5 +45,16 @@ public class Mclaren extends Actor
         {
             setLocation(470, getY());
         }
+    }
+
+    
+    private void aumentarDificultad()
+    {
+        MyWorld world = (MyWorld)getWorld();
+
+        int nivel = world.getHUD().getNivel();
+
+        
+        speed = 2 + (nivel / 2);
     }
 }
