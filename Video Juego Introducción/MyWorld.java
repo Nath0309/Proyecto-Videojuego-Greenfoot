@@ -1,21 +1,44 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class MyWorld extends World
-{
+public class MyWorld extends World{
+    private int score = 0;
+    private int spawnTimer = 0;
 
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
-    public MyWorld()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(720, 600, 1); 
+    public MyWorld(){
+        super(720, 600, 1);
+        prepare();
+    }
+
+    private void prepare(){
+        Mclaren car = new Mclaren();
+        addObject(car, 360, 500);
+    }
+
+    public void act(){
+        spawnTimer++;
+
+        if (spawnTimer % 60 == 0)
+        {
+            spawnObject();
+        }
+    }
+
+    private void spawnObject(){
+        int x = Greenfoot.getRandomNumber(220) + 250;
+
+        int roll = Greenfoot.getRandomNumber(10);
+        if (roll < 6)
+        {
+            addObject(new Coin(), x, 0);
+        }
+        else
+        {
+            addObject(new Obstacle(), x, 0);
+        }
+    }
+    
+    public void gameOver(){
+        showText("¡GAME OVER!", getWidth() / 2, getHeight() / 2);
+        Greenfoot.stop();
     }
 }
