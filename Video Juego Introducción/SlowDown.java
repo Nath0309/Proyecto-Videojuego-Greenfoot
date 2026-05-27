@@ -1,38 +1,31 @@
 import greenfoot.*;
 
-public class Coin extends Actor
+public class SlowDown extends Actor
 {
-    private int speed;
-
-    public Coin(int speed)
-    {
-        this.speed = speed;
-    }
+    private int speed = 3;
 
     public void act()
     {
         setLocation(getX(), getY() + speed);
 
-        // Eliminar moneda al tocar fondo
+        // Eliminar al salir de pantalla
         if(getY() >= getWorld().getHeight()-10)
         {
             getWorld().removeObject(this);
             return;
         }
 
-        // Detectar colisión con el carro
+        // Detectar colisión con el jugador
         Actor car = getOneIntersectingObject(Mclaren.class);
 
         if(car != null)
         {
-            Greenfoot.playSound("coin.mp3");
+ 
+            Mclaren player = (Mclaren) car;
 
-            MyWorld world = (MyWorld)getWorld();
-
-            world.addScore(10);
+            player.disminuirVelocidad();
 
             getWorld().removeObject(this);
         }
     }
 }
-

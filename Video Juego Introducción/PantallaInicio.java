@@ -9,6 +9,7 @@ public class PantallaInicio extends World
         showText("PIXEL RACER", 360, 220);
         showText("Presiona ENTER", 360, 320);
         showText("Flechas para moverte", 360, 380);
+        prepare();
     }
 
     public void act()
@@ -17,5 +18,12 @@ public class PantallaInicio extends World
         {
             Greenfoot.setWorld(new MyWorld());
         }
+    }
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
     }
 }
