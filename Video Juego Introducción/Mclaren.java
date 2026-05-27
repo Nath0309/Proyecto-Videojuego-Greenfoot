@@ -47,14 +47,29 @@ public class Mclaren extends Actor
         }
     }
 
-    
     private void aumentarDificultad()
     {
         MyWorld world = (MyWorld)getWorld();
 
         int nivel = world.getHUD().getNivel();
 
-        
         speed = 2 + (nivel / 2);
+    }
+
+    // POWER UP
+    public void aumentarVelocidad()
+    {
+        speed += 4;
+    }
+
+    // POWER DOWN
+    public void disminuirVelocidad()
+    {
+        speed -= 3;
+
+        if(speed < 2)
+        {
+            speed = 2;
+        }
     }
 }

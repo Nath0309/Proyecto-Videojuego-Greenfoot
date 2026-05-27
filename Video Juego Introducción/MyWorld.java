@@ -58,23 +58,40 @@ public class MyWorld extends World
         }
     }
 
-    private void spawnObject()
+
+private void spawnObject()
+{
+    int x = Greenfoot.getRandomNumber(220) + 250;
+
+    int roll = Greenfoot.getRandomNumber(20);
+
+    // Monedas
+    if(roll < 10)
     {
-        int x = Greenfoot.getRandomNumber(220) + 250;
-
-        int roll = Greenfoot.getRandomNumber(10);
-
-        if(roll < 6)
-        {
-            Coin c = new Coin(coinSpeed);
-            addObject(c, x, 0);
-        }
-        else
-        {
-            Obstacle o = new Obstacle(obstacleSpeed);
-            addObject(o, x, 0);
-        }
+        Coin c = new Coin(coinSpeed);
+        addObject(c, x, 0);
     }
+
+    // Obstáculos
+    else if(roll < 16)
+    {
+        Obstacle o = new Obstacle(obstacleSpeed);
+        addObject(o, x, 0);
+    }
+
+    // SpeedBoost
+    else if(roll < 18)
+    {
+        addObject(new SpeedBoost(), x, 0);
+    }
+
+    // SlowDown
+    else
+    {
+        addObject(new SlowDown(), x, 0);
+    }
+}
+
 
     
     public void addScore(int puntos)
