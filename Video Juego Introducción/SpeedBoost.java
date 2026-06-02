@@ -21,6 +21,7 @@ public class SpeedBoost extends Actor
 
         if(car != null)
         {
+            Greenfoot.playSound("SpeedUP-1.mp3");
             
             Mclaren player = (Mclaren) car;
 

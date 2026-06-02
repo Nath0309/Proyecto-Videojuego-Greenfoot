@@ -20,7 +20,8 @@ public class SlowDown extends Actor
 
         if(car != null)
         {
- 
+            Greenfoot.playSound("SlowDown.mp3");
+            
             Mclaren player = (Mclaren) car;
 
             player.disminuirVelocidad();

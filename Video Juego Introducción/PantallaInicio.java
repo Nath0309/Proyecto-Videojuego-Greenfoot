@@ -7,8 +7,10 @@ public class PantallaInicio extends World
         super(720, 600, 1);
 
         showText("PIXEL RACER", 360, 220);
-        showText("Presiona ENTER", 360, 320);
-        showText("Flechas para moverte", 360, 380);
+        showText("Presiona ENTER para empezar", 360, 320);
+        showText("Usa las flechas para moverte", 360, 380);
+        showText("Procura no chocar!", 360, 410);
+        
         prepare();
     }
 

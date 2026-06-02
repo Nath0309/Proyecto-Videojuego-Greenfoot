@@ -24,8 +24,14 @@ public class MyWorld extends World
         musica.setVolume(35);
         musica.playLoop();
         
+        addObject(new BotonMusica(), 680, 30);
     }
 
+    public GreenfootSound getMusica()
+    {
+        return musica;
+    }
+    
     private void prepare()
     {
         Mclaren car = new Mclaren();
